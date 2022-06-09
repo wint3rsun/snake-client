@@ -1,34 +1,20 @@
+const { MESSAGES, MOVEMENT_KEYS } = require("./constants");
 let connection;
-
-const messages = {
-  h: "Gogogo",
-  j: "Ur ded snek",
-  k: "fight!",
-  l: "NOO!!!",
-  i: "save meh :("
-};
 
 const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }
 
-  //snake movement keys
-  if (key === 'w') {
-    connection.write("Move: up");
-  } else if (key === 'a') {
-    connection.write("Move: left");
-  } else if (key === 's') {
-    connection.write("Move: down");
-  } else if (key === 'd') {
-    connection.write("Move: right");
+  //snake movement
+  if (MOVEMENT_KEYS[key]) {
+    connection.write(`${MOVEMENT_KEYS[key]}`);
   }
 
   //canned messages
-  if(messages[key]) {
-    connection.write(`Say: ${messages[key]}`);
+  if(MESSAGES[key]) {
+    connection.write(`Say: ${MESSAGES[key]}`);
   }
-
 };
 
 const setupInput = function (conn) {
