@@ -1,10 +1,19 @@
 let connection;
 
+const messages = {
+  h: "Gogogo",
+  j: "Ur ded snek",
+  k: "fight!",
+  l: "NOO!!!",
+  i: "save meh :("
+};
+
 const handleUserInput = function (key) {
   if (key === '\u0003') {
     process.exit();
   }
 
+  //snake movement keys
   if (key === 'w') {
     connection.write("Move: up");
   } else if (key === 'a') {
@@ -14,6 +23,12 @@ const handleUserInput = function (key) {
   } else if (key === 'd') {
     connection.write("Move: right");
   }
+
+  //canned messages
+  if(messages[key]) {
+    connection.write(`Say: ${messages[key]}`);
+  }
+
 };
 
 const setupInput = function (conn) {
