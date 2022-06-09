@@ -8,7 +8,7 @@ const MOVEMENT_KEYS = {
   a: "Move: left",
   s: "Move: down",
   d: "Move: right"
-}
+};
 
 const MESSAGES = {
   h: "Gogogo",
@@ -24,4 +24,4 @@ module.exports = {
   MOVEMENT_KEYS,
   MESSAGES,
   USRNAME
-}
+};

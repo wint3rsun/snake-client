@@ -1,7 +1,7 @@
 const { MESSAGES, MOVEMENT_KEYS } = require("./constants");
 let connection;
 
-const handleUserInput = function (key) {
+const handleUserInput = function(key) {
   if (key === '\u0003') {
     process.exit();
   }
@@ -12,12 +12,12 @@ const handleUserInput = function (key) {
   }
 
   //canned messages
-  if(MESSAGES[key]) {
+  if (MESSAGES[key]) {
     connection.write(`Say: ${MESSAGES[key]}`);
   }
 };
 
-const setupInput = function (conn) {
+const setupInput = function(conn) {
   connection = conn;
 
   const stdin = process.stdin;
@@ -30,7 +30,7 @@ const setupInput = function (conn) {
   return stdin;
 };
 
-module.exports = { 
+module.exports = {
   setupInput
 };
 
